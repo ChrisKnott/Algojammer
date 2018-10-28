@@ -97,22 +97,9 @@ Eventually more 'tools' will be added to the `jam` object such as the ability to
 ~~Only 100 Markers can be set at one time (this is for performance reasons, it's not a design choice).~~
 
 ## Demo
-A quick demo is available on YouTube.
+A quick demo is available on [YouTube](https://www.youtube.com/watch?v=9XPE4uT0AdE).
 
-```
-    +====================================================+
-    |                                                    |
-    |                                                    |
-    |                                                    |
-    |                                                    |
-    |                                                    |
-    |                                                    |
-    |                                                    |
-    |                                                    |
-    |                                                    |
-    |                                                    |
-    +====================================================+
-```
+![Video](https://github.com/ChrisKnott/Algojammer/raw/master/README/vid.png)
 
 ## Running Algojammer
 ```diff
