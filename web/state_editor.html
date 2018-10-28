@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Display Editor</title>
+    <script type='text/javascript' src='/lib/jquery.js'></script>
+    <script type='text/javascript' src='/lib/ace/ace.js'></script>
+    <script type='text/javascript' src='/eel.js'></script>
+</head>
+<body style='background: rgb(200, 205, 200);'>
+    <pre id='state_editor'></pre>
+    <script type='text/javascript'>
+        var url = new URL(window.location.href);
+        var uid = url.searchParams.get('uid');
+
+        var editor = ace.edit('state_editor', {
+            theme: 'ace/theme/xcode',
+            mode: 'ace/mode/python',
+            maxLines: 100,
+            minLines: 23,
+            showGutter: false,
+            autoScrollEditorIntoView: true,
+            fontSize: 14,
+        });
+
+        editor.renderer.setPadding(10);
+        editor.renderer.setScrollMargin(5, 5);
+        editor.session.on('change', function(delta) {
+            eel.set_state_box_code(uid, editor.getValue());
+        });
+
+        eel.get_state_box_code(uid)(function(code){
+            editor.setValue(code);
+            editor.clearSelection();
+        });
+    </script>
+</body>
+</html>

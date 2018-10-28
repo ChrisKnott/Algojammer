@@ -1,0 +1,5 @@
+__pycache__
+c_ext/build/*
+c_ext/dist/*
+c_ext/Algorecord.egg-info
+.DS_Store

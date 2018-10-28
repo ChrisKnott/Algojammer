@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Algojammer</title>
+    <style type='text/css' media='screen'>
+        canvas {margin: 0px; padding: 0px; border: 0px; }
+        html { margin: 0px; padding: 0px; border: 0px; } 
+        body { margin: 0px; padding: 0px; border: 0px; } 
+        div { margin: 0px; padding: 0px; border: 0px; } 
+        pre { margin: 1px 0px 0px 0px; padding: 0px; border: 0px; } 
+        .line_highlight {
+            position: absolute;
+            background: rgba(150, 150, 100, 0.3);
+            z-index: 20
+        }
+        .tools {
+            background: rgb(100, 100, 100);
+            width: auto; height: 20px; position: absolute; 
+            top: 0; right: 600px; z-index: 20;
+            display: inline-block;
+        }
+    </style>
+    <script type='text/javascript' src='/lib/jquery.js'></script>
+    <script type='text/javascript' src='/lib/md5.js'></script>
+    <script type='text/javascript' src='/lib/ace/ace.js'></script>
+    <script type='text/javascript' src='/lib/pixi.min.js'></script>
+    <script type='text/javascript' src='/eel.js'></script>
+    <script type='text/javascript' src='/timeline.js'></script>
+    <script type='text/javascript' src='/algojammer.js'></script>
+</head>
+<body style='background: rgb(20, 25, 20);'>
+    <div style='width: 700px; display: inline-block;
+                margin-right: 1px; background: black'>
+        <!-- Code editor -->
+        <pre id='editor'></pre>
+
+        <!-- Buttons -->
+        <div class='tools'>
+            <button id='save_button'>Save</button>
+            <button id='load_button'>Load</button>
+            <input type='checkbox' id='auto_run' checked><!--
+         --><button id='run_button'><b>Run</b></button>
+            <button id='state_button'>Sheet</button>
+            <button id='io_button'>I/O</button><!-- TODO: add stdin/stdout -->
+        </div>
+    </div><!--
+ --><div id='timeline_div' style='width: 0px; display: inline-block;'>
+        <canvas id='timeline_canvas'></canvas>
+    </div>
+</body>
+</html>
