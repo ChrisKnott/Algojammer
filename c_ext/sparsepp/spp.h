@@ -1171,7 +1171,6 @@ private:
     }
 
 public:
-
     // get_iter() in sparsetable needs it
     size_type pos_to_offset(size_type pos) const
     {
@@ -1437,7 +1436,6 @@ private:
     }
 
 public:
-
     // This returns the pointer to the inserted item
     // ---------------------------------------------
     template <class Val>
@@ -2992,13 +2990,11 @@ public:
 
     // LOOKUP ROUTINES
 private:
-
     enum pos_type { pt_empty = 0, pt_erased, pt_full };
     // -------------------------------------------------------------------
     class Position
     {
     public:
-
         Position() : _t(pt_empty) {}
         Position(pos_type t, size_type idx) : _t(t), _idx(idx) {}
 
@@ -3210,7 +3206,6 @@ private:
     }
 
 public:
-
 #if !defined(SPP_NO_CXX11_VARIADIC_TEMPLATES)
     template <class... Args>
     std::pair<iterator, bool> emplace(Args&&... args)
@@ -3458,7 +3453,6 @@ public:
     }
 
 private:
-
     // Package templated functors with the other types to eliminate memory
     // needed for storing these zero-size operators.  Since ExtractKey and
     // hasher's operator() might have the same function signature, they
