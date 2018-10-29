@@ -59,7 +59,7 @@ def update_state_boxes(snapshot, modules):
             if code.startswith('#draw'):
                 # Add drawing functions to snapshot scope
                 for f in 'ink line circ rect font text'.split():
-                    snapshot_copy[f] = eval('drw.' + f)
+                    snapshot_copy[f] = ast.literal_eval('drw.' + f)
                 drw.start()
                 exec(code, snapshot_copy)
                 value = drw.end()
