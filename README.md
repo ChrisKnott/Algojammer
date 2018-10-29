@@ -28,7 +28,7 @@ The Execution consists of two elements;
 - The **State** of any variables at any of one of these Steps.
 
 ### Timeline
-To the right of your code editor is the Timeline, the first tool to help understand the Execution. Each Step is representated by a small square on the Timeline. These squares proceed from left to right, and line up with the corresponding line of code that was executed. The Timeline can be zoomed and scrolled with the mouse, and the Current Step is highlighted. Hold shift to set the Current Step.
+To the right of your code editor is the Timeline, the first tool to help understand the Execution. Each Step is represented by a small square on the Timeline. These squares proceed from left to right, and line up with the corresponding line of code that was executed. The Timeline can be zoomed and scrolled with the mouse, and the Current Step is highlighted. Hold shift to set the Current Step.
 
 ![Timeline](https://github.com/ChrisKnott/Algojammer/raw/master/README/Timeline.png)  
 <sup>The Timeline with Step #32 highlighted as the Current Step</sup>
@@ -38,7 +38,7 @@ The Timeline can give an immediate "feel" or "shape" to an algorithm by giving y
 ![Bubble Sort](https://github.com/ChrisKnott/Algojammer/raw/master/README/Bubble.png)
 
 ### Metacode
-In Algojammer, we can interogate and investigate the Execution by writing Metacode. Metacode is **code that we write about the Maincode's Execution**.
+In Algojammer, we can interrogate and investigate the Execution by writing Metacode. Metacode is **code that we write about the Maincode's Execution**.
 
 A lot of programmers will have, as a final attempt at tracking down a tricky bug, done something like this;
 1. Give up on "debugging" (stepping through + watch variables)
@@ -124,7 +124,7 @@ Currently Algojammer uses [Eel](https://github.com/ChrisKnott/Eel) for the GUI, 
 Algojammer is only tested on Python 3.5, and due to the very hacky nature in which it is currently implemented, probably doesn't work on many other versions.
 
 ## Plans
-A critiscism that is sometimes levelled at Bret Victor's (or Chris Grainger's) work is that the demos feel revolutionary but essentially solve "toy problems", and start to creak when you think how they might scale to "real programming".
+A criticism that is sometimes levelled at Bret Victor's (or Chris Grainger's) work is that the demos feel revolutionary but essentially solve "toy problems", and start to creak when you think how they might scale to "real programming".
 
 Algojammer is definitely still within the "toy" sphere. However, I think it moves forward in a couple of important ways. Firstly, it is designed to solve toy problems (questions from algorithm competitions) that are;
 1. Outside of my control
@@ -133,7 +133,7 @@ Algojammer is definitely still within the "toy" sphere. However, I think it move
 
 I think this is important because it attaches a certain degree of **falsifiability** to some of the navel-gazing, pretentious nonsense I've written above. Ultimately, when the clock's ticking in Code Jam, and I just *really need to solve this problem*, do I reach for a tool like Algojammer? This test can't be faked. An actual "bicycle for the mind", is not something that feels revolutionary in a conference talk. An actual bicycle is something that let's me **easily beat people who are better than me in a race**.
 
-So, this is the current goal for the project: **to build a tool that has a provably positive effect on people's performace in Code Jam**.
+So, this is the current goal for the project: **to build a tool that has a provably positive effect on people's performance in Code Jam**.
 
 Unfortunately I have reached the limits of my enthusiasm, ability and ideas at the moment, so I am putting it out slightly early in the hopes that other people can help, or at least to stimulate some interesting discussion.
 
@@ -152,5 +152,5 @@ If you like things like this, you should check out this stuff...
 - [Chronomancer](https://robert.ocallahan.org/2007/08/announcing-chronomancer_21.html) - An omniscient debugger for C++ from 2007 by Robert O'Callahan
 - [rr](https://rr-project.org/) - Also by Robert O'Callahan, a low level reversible debugger - basically an omniscient version of gdb
 
-There are many other projects out there such as [RevPDB](https://morepypy.blogspot.com/2016/07/reverse-debugging-for-python.html) (a reversable debugger for Python from the Pypy team) and [Undo](https://undo.io/) (reversable debugger for C++), but I haven't looked into them in detail.
+There are many other projects out there such as [RevPDB](https://morepypy.blogspot.com/2016/07/reverse-debugging-for-python.html) (a reversible debugger for Python from the Pypy team) and [Undo](https://undo.io/) (reversible debugger for C++), but I haven't looked into them in detail.
 
