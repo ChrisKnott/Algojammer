@@ -445,7 +445,6 @@ public:
     {
         typedef spp_::libc_allocator<U> other;
     };
-
 };
 
 // forward declaration
