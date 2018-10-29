@@ -56,7 +56,7 @@ for c in []:#'<module> shuffle _randbelow'.split():
         print('')
     try:
         print(inspect.getsource(code))
-    except:InspectFailed
+    except InspectFailed:
         pass
 
 import sys; sys.exit()
