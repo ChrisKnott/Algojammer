@@ -124,7 +124,7 @@ Currently Algojammer uses [Eel](https://github.com/ChrisKnott/Eel) for the GUI, 
 Algojammer is only tested on Python 3.5, and due to the very hacky nature in which it is currently implemented, probably doesn't work on many other versions.
 
 ## Plans
-A critiscism that is sometimes levelled at Bret Victor's (or Chris Grainger's) work is that the demos feel revolutionary but essentially solve "toy problems", and start to creak when you think how they might scale to "real programming".
+A criticism that is sometimes levelled at Bret Victor's (or Chris Grainger's) work is that the demos feel revolutionary but essentially solve "toy problems", and start to creak when you think how they might scale to "real programming".
 
 Algojammer is definitely still within the "toy" sphere. However, I think it moves forward in a couple of important ways. Firstly, it is designed to solve toy problems (questions from algorithm competitions) that are;
 1. Outside of my control
