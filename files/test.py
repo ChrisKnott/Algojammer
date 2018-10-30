@@ -61,7 +61,7 @@ for c in []:#'<module> shuffle _randbelow'.split():
 
 import sys; sys.exit()
 
-import pickle
+import pickle # way to convert a python object (list, dict, etc.) into a character stream.
 import random
 import io
 import pickletools
