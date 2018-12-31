@@ -1,3 +1,4 @@
+import gevent.monkey; gevent.monkey.patch_all()
 import eel, state_boxes as sbx, execution as exe, state as sta, time as tme
 
 state = {
