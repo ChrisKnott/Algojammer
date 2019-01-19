@@ -103,10 +103,9 @@ A quick demo is available on [YouTube](https://www.youtube.com/watch?v=9XPE4uT0A
 
 ## Running Algojammer
 ```diff
-- The current implementation of Algojammer is extremely hacky and brittle. 
+- Consider the current implementation of Algojammer a design prototype 
 - It *will* crash, do weird things and leak memory like a sieve
-- I want to rewrite it from scratch to be more stable, but I'm struggling
-- If you are experienced with contributing to CPython and want to help, let me know
+- I am currently in the process of rewriting it properly and to incorporate feedback
 ```
 
 Install and run Algojammer like this;
