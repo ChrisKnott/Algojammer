@@ -1,0 +1,14 @@
+<recipe>
+    <title>Cheese on Toast</title>
+    <ingredient name="Bread" quantity="2" unit="slices"/>
+    <ingredient name="Cheese" quantity="2" unit="slices"/>
+    <time quantity="3" unit="days"/>
+    <method>
+        <step>1. Slice the bread and cheese.</step>
+        <step>2. Grill one side of each slice of bread.</step>
+        <step>3. Turn over the bread and place a slice of cheese on each piece.</step>
+        <step>4. Grill until the cheese has started to melt.</step>
+        <step>5. Serve and enjoy!</step>
+    </method>
+    <comment>Tell your friends about it!</comment>
+</recipe>

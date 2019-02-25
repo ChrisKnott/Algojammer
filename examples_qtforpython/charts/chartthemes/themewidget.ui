@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ThemeWidgetForm</class>
+ <widget class="QWidget" name="ThemeWidgetForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="themeLabel">
+       <property name="text">
+        <string>Theme:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="themeComboBox"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="animatedLabel">
+       <property name="text">
+        <string>Animation:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="animatedComboBox"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="legendLabel">
+       <property name="text">
+        <string>Legend:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="legendComboBox"/>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="antialiasCheckBox">
+       <property name="text">
+        <string>Anti-aliasing</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>themeComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>ThemeWidgetForm</receiver>
+   <slot>updateUI()</slot>
+  </connection>
+  <connection>
+   <sender>antialiasCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ThemeWidgetForm</receiver>
+   <slot>updateUI()</slot>
+  </connection>
+  <connection>
+   <sender>legendComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>ThemeWidgetForm</receiver>
+   <slot>updateUI()</slot>
+  </connection>
+  <connection>
+   <sender>animatedComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>ThemeWidgetForm</receiver>
+   <slot>updateUI()</slot>
+  </connection>
+ </connections>
+ <slots>
+  <slot>updateUI()</slot>
+ </slots>
+</ui>

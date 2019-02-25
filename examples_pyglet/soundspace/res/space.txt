@@ -1,0 +1,24 @@
+loop drums.ogg
+  label Drums
+  position -1.5 0 4
+  cone_orientation 1 0 -1
+  outer_cone_angle 360
+  inner_cone_angle 90
+loop piano.ogg
+  label Piano
+  position 3 0 4.5 
+  cone_orientation -.5 0 -1
+  outer_cone_angle 360
+  inner_cone_angle 90
+loop bass.ogg
+  label Bass
+  position -3 0 -4 
+  cone_orientation .5 0 1
+  outer_cone_angle 270
+  inner_cone_angle 90
+loop guitar.ogg
+  label Guitar
+  position 5 0 -3
+  cone_orientation -1.5 0 1
+  outer_cone_angle 270
+  inner_cone_angle 90

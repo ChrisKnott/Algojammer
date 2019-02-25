@@ -1,0 +1,6 @@
+{
+  "main": "electron_main.js",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  }
+}

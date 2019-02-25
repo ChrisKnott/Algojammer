@@ -1,0 +1,8 @@
+algorecord.cpp
+hacks.cpp
+recorder.cpp
+setup.py
+Algorecord.egg-info/PKG-INFO
+Algorecord.egg-info/SOURCES.txt
+Algorecord.egg-info/dependency_links.txt
+Algorecord.egg-info/top_level.txt

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Algojammer</title>
+        <link rel='stylesheet' type='text/css' href='/editor/main_editor.css'>
+        <script type='text/javascript' src='/eel.js'></script>
+        <script type='text/javascript' src='/lib/ace/ace.js'></script>
+        <script type='text/javascript' src='/lib/jquery.js'></script>
+        <script type='text/javascript' src='/lib/clock.js'></script>
+
+        <script type='text/javascript' src='/algojammer.js'></script>
+        <script type='text/javascript' src='/editor/main_editor.js'></script>
+    </head>
+    
+    <body>
+		<pre id='main_editor'></pre>
+
+		<!-- Buttons -->
+        <div class='tools'>
+            <button id='save_button'>Save</button>
+            <button id='load_button'>Load</button>
+            <input type='checkbox' id='auto_run' checked><!--
+         --><button id='run_button'><b>Run</b></button>
+            <button id='sheet_button'>Sheet</button>
+            <button id='io_button'>I/O</button><!-- TODO: add stdin/stdout -->
+        </div>
+    </body>
+</html>

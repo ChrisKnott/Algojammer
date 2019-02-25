@@ -1,45 +1,41 @@
-import eel, state_boxes as sbx, execution as exe, state as sta, time as tme
+import eel, execorder, time
+import windows, drawing, timeline, gui
 
-state = {
-    'step': 0,
-    'snapshots': [],
-    'mode': 'stopped'
-}
-page_geom = {
-    'algojammer.html': {'size': (1300, 800), 'position': (610, 200)},
-    'sheet.html':      {'size': ( 500, 800), 'position': (100, 200)}
-}
+execution = {'state': 'ready'}
+
+def execution_callback(recording):
+    execution['recording'] = recording
+    eel.sleep(0.001)    # Yield to other threads
+
+@eel.expose
+def run(code):
+    if execution['state'] == 'ready':
+        execution['state'] = 'running'
+        try:
+            execution['recording'] = execorder.exec(code, 0, execution_callback)
+        except Exception as e:
+            # TODO: display somehow
+            print(e)
+
+        execution['state'] = 'ready'
+
+@eel.expose
+def draw_frame(guid, canvas_data):
+    x, y, w, h = canvas_data
+    canvas = drawing.Canvas(w, h)
+    mx, my = gui.mouse_position()
+    canvas.mx = mx - x
+    canvas.my = my - y
+    timeline.draw_timeline(canvas, execution.get('recording'))
+    return canvas._commands
+
 
 eel.init('web')
-
-@eel.expose
-def read_example():
-    with open('files/example.py', encoding='utf8') as example_file:
-        eel.set_code(example_file.read())
-
-@eel.expose
-def run(code, stdin=''):
-    while state['mode'] != 'stopped':
-        state['mode'] = 'interrupt'
-        eel.sleep(0.01)
-
-    state['mode'] = 'running'
-    sta.execution_start()
-    exe.bounded_exec(code, 10**7, report)
-    state['mode'] = 'stopped'
-
-def report(data):
-    if state['mode'] == 'interrupt':
-        raise InterruptedError('Code changed during execution')
-
-    sta.execution_report(data)
-    eel.execution_report(data)
-
-@eel.expose
-def update_state(n=state['step'], force=False):
-    if n != state['step'] or force:
-        state['step'] = n
-        snapshot, modules = sta.get_state(n)
-        sbx.update_state_boxes(snapshot, modules)
-
-eel.start('algojammer.html', geometry=page_geom)
+eel.start('editor/main_editor.html', 'sheet/timeline.html',
+          mode = 'electron',
+          port = 8888, 
+          cmdline_args = ['--disable-http-cache'],
+          geometry={'editor/main_editor.html': {'position': ( 450, 200),
+                                                'size':     ( 600, 700)},
+                    'sheet/timeline.html':     {'position': (1050, 200),
+                                                'size':     ( 600, 700)}})

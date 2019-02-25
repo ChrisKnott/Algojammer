@@ -1,0 +1,11 @@
+<contact>
+    <givenName>John</givenName>
+    <familyName>Doe</familyName>
+    <title>Prof.</title>
+    <workAddress>
+        <street>Sandakerveien 116</street>
+        <zipCode>N-0550</zipCode>
+        <city>Oslo</city>
+        <country>Norway</country>
+    </workAddress>
+</contact>

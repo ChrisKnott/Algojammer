@@ -1,0 +1,18 @@
+<order>
+    <customerId>194223</customerId>
+    <article>
+        <articleId>22242</articleId>
+        <count>5</count>
+    </article>
+    <article>
+        <articleId>32372</articleId>
+        <count>12</count>
+        <comment>without stripes</comment>
+    </article>
+    <article>
+        <articleId>23649</articleId>
+        <count>2</count>
+    </article>
+    <deliveryDate>2009-01-23</deliveryDate>
+    <payed>true</payed>
+</order>
