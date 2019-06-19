@@ -1,9 +1,94 @@
-html   { margin: 0px; padding: 0px; border: 0px; } 
-body   { margin: 0px; padding: 0px; border: 0px; } 
+/* I am not good at CSS... */
+
+html   { margin: 0px; padding: 0px; border: 0px; height: 100%; } 
+body   { margin: 0px; padding: 0px; border: 0px; min-height: 100%; } 
 div    { margin: 0px; padding: 0px; border: 0px; } 
 pre    { margin: 0px; padding: 0px; border: 0px; } 
 canvas { margin: 0px; padding: 0px; border: 0px; }
 
-#sheet-canvas {
-	display: block;
+.sketch {
+    font-family: monospace;
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    pointer-events: none;
+}
+
+.label {
+    padding: 2px 2px 2px 2px;
+    border: 0.5px solid rgb(100, 100, 100);
+    background: rgb(200, 200, 200); 
+    text-align: center;
+    min-width: 16px;
+    display: inline-block; 
+    vertical-align: top; 
+    cursor: move;
+    word-break: break-all;
+    user-select: none;
+    pointer-events: all;
+}
+
+.output {
+    border: 0.5px solid rgb(100, 100, 100);
+    background: rgb(220, 220, 220); 
+    vertical-align: top; 
+    display: inline-block;
+    overflow: hidden;
+    min-width: 18px;
+    min-height: 19px;
+    width: 200px;
+    height: 100%; 
+    pointer-events: all;
+}
+
+.output canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.output .text {
+    position: absolute;
+    overflow: auto;
+    padding: 2px;
+    white-space: pre;
+    background: none;
+    border: none;
+    top: 0px;
+    left: 0px;
+    height: 100%; 
+    width: 100%;
+}
+
+#fullscreen_output {
+    z-index: 10;
+    background: rgb(200, 200, 200);
+    font-family: monospace;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+}
+
+#fullscreen_canvas {
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: none;
+}
+
+#fullscreen_text {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    overflow: auto;
+    white-space: pre;
+    pointer-events: all;
+    background: none;
 }

@@ -6,20 +6,24 @@
         <script type='text/javascript' src='/eel.js'></script>
         <script type='text/javascript' src='/lib/ace/ace.js'></script>
         <script type='text/javascript' src='/lib/jquery.js'></script>
-        <script type='text/javascript' src='/lib/clock.js'></script>
 
         <script type='text/javascript' src='/algojammer.js'></script>
         <script type='text/javascript' src='/editor/main_editor.js'></script>
+        <script type='text/javascript' src='/sheet/sketch.js'></script>
     </head>
     
     <body>
-		<pre id='main_editor'></pre>
+        <pre id='main_editor'></pre>
 
-		<!-- Buttons -->
+        <div id='front_div'>
+            <canvas id='front_canvas'></canvas>
+        </div>
+		
+        <!-- Buttons -->
         <div class='tools'>
             <button id='save_button'>Save</button>
             <button id='load_button'>Load</button>
-            <input type='checkbox' id='auto_run' checked><!--
+            <input type='checkbox' id='auto_run' unchecked><!--
          --><button id='run_button'><b>Run</b></button>
             <button id='sheet_button'>Sheet</button>
             <button id='io_button'>I/O</button><!-- TODO: add stdin/stdout -->

@@ -1,0 +1,21 @@
+{
+  "title": "Vars",
+  "left": 14,
+  "top": 30,
+  "width": 474,
+  "height": 400,
+  "sketches": [
+    {
+      "label": "vars",
+      "left": "11px",
+      "top": "5px",
+      "width": 378,
+      "height": 175,
+      "style": "inline-block",
+      "colour": "rgb(220, 220, 220) none repeat scroll 0% 0% / auto padding-box border-box",
+      "maxed": true,
+      "code": "# Bring maincode variables into scope\njam.spill(jam['current_step'], globals())\nprint(globals().keys())\n",
+      "animate": true
+    }
+  ]
+}

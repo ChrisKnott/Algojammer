@@ -1,0 +1,45 @@
+{
+  "title": "Chris",
+  "left": 305,
+  "top": 188,
+  "width": 474,
+  "height": 446,
+  "sketches": [
+    {
+      "label": "A",
+      "left": "232px",
+      "top": "11px",
+      "width": 116,
+      "height": 217,
+      "style": "inline-block",
+      "colour": "rgb(220, 220, 220) none repeat scroll 0% 0% / auto padding-box border-box",
+      "maxed": false,
+      "code": "for i in range(10):\n    print('hello', 2**i)\n",
+      "animate": true
+    },
+    {
+      "label": "bbbbb",
+      "left": "38px",
+      "top": "136px",
+      "width": 172,
+      "height": 179,
+      "style": "block",
+      "colour": "rgb(200, 100, 100) none repeat scroll 0% 0% / auto padding-box border-box",
+      "maxed": false,
+      "code": "import math\nt = 0\n\n@jam.on_refresh\ndef ref():\n    global t\n    t += 0.05\n    dx, dy = math.sin(t), math.cos(t)\n    jam.canvas.clear()\n    jam.canvas.ink(0, 0, 0)\n    jam.canvas.line(50, 50, 50 + dx*70, 50+dy*70)\n\n\n",
+      "animate": true
+    },
+    {
+      "label": "B",
+      "left": "76px",
+      "top": "66px",
+      "width": 264,
+      "height": 253,
+      "style": "inline-block",
+      "colour": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+      "maxed": false,
+      "code": "import random\n\nrnd = lambda n: random.randint(0, n)\n\n@jam.on_refresh\ndef refresh():\n    jam.canvas.clear()\n    w, h = jam.canvas.width, jam.canvas.height\n    for _ in range(10):\n        jam.canvas.ink(rnd(255), rnd(255), rnd(255))\n        jam.canvas.circ(rnd(w), rnd(h), 5 + rnd(20))\n",
+      "animate": true
+    }
+  ]
+}

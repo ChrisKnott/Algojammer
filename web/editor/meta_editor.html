@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Metacode</title>
+        <link rel='stylesheet' type='text/css' href='/editor/main_editor.css'>
+        <script type='text/javascript' src='/eel.js'></script>
+        <script type='text/javascript' src='/lib/ace/ace.js'></script>
+        <script type='text/javascript' src='/lib/jquery.js'></script>
+        
+        <script type='text/javascript' src='/algojammer.js'></script>
+    </head>
+    
+    <body>
+		<pre id='meta_editor'></pre>
+
+        <script type='text/javascript'>
+
+var url = new URL(window.location.href);
+var sketch_guid = url.searchParams.get('guid');
+
+var editor = ace.edit('meta_editor', {
+    theme: 'ace/theme/xcode',
+    mode: 'ace/mode/python',
+    maxLines: 1000,
+    minLines: 40,
+    showGutter: false,
+    autoScrollEditorIntoView: true,
+    fontSize: 14,
+});
+
+editor.renderer.setPadding(10);
+editor.renderer.setScrollMargin(5, 5);
+editor.session.on('change', function(delta) {
+    eel.set_metacode(sketch_guid, editor.getValue());
+});
+
+eel.get_metacode(sketch_guid)(function(code){
+    editor.setValue(code);
+    editor.clearSelection();
+});
+        </script>
+    </body>
+</html>

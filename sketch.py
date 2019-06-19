@@ -1,47 +1,75 @@
-import eel, collections
+import eel
+import jam, drawing, mock
 
-metacode = {}                               # Source code for each Sketch
-compiled = {}                               # Compiled source code for each Sketch
-variables = {}                              # Persistent globals between frames
-callbacks = collections.defaultdict(dict)   # GUI events for the sketch
-callback_code = {}
+metacode = {}                               # Meta source code for each Sketch
+compiled = {}                               # Compiled metacode for each Sketch
+proxies = {}                                # Control proxies passed to each Sketch
 
-def run_sketch(guid, jam):
-    try:
-        variables[guid]['jam'] = jam
-        exec(compiled[guid], variables[guid])
-    except Exception as e:
-        print('Sketch:', e)
+def set_metacode(guid, source, control):
+    if source != metacode.get(guid):  # If source has changed...
+        try:
+            metacode[guid] = source
+            compiled[guid] = None
+            compiled[guid] = compile(source, '<metacode>', 'exec')
+            proxies[guid] = jam.Proxy(control, guid)
+        except Exception as e:
+            pass;print('Exception set_metacode:', e)
 
 @eel.expose
-def set_code(guid, source):
-    if source != metacode.get(guid):
-        try:
-            variables[guid] = {}
-            compiled[guid] = compile(source, guid, 'exec')
-            print('Compiled', guid)
-        except:
-            ...
-        finally:
-            metacode[guid] = source
+def get_metacode(guid):
+    return metacode.get(guid, '')
 
-def set_event_callback(guid, kind, method):
-    callbacks[guid][kind] = method
-    callback_code[guid] = compile('__jam_event__(*__jam_event_args__)', guid, 'exec')
-
-def sketch_callback(guid, kind, args):
+def run_metacode(guid):
     try:
-        callback_variables = {'__jam_event__':      callbacks[guid][kind],
-                              '__jam_event_args__': args}
-        exec(callback_code[guid], variables[guid], callback_variables)
+        code = compiled.get(guid)
+        if code != None:
+            proxy = proxies[guid]
+            proxy.io = mock.MockIO()
+
+            exec_vars = proxy.io.functions()
+            exec_vars['jam'] = proxy
+
+            # TODO: make execorder w/ max steps set + callback
+            exec(code, exec_vars)
+        else:
+            pass;print("Can't run uncompilable code")
     except Exception as e:
-        print('Sketch GUI:', e)
+        pass;print('Exception run_metacode:', e)
+
+@eel.expose
+def sketch_refresh(guid, geometry):
+    proxy = proxies.get(guid)
+    if proxy:
+        proxy.io = mock.MockIO()
+        proxy.canvas = drawing.Canvas(*geometry)
+        try:
+            if proxy.refresh_callback != None:
+                proxy.refresh_callback()
+            else:
+                run_metacode(guid)      # No refresh callback defined - re-run all code
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            print('-'*50)
+            #pass;print('Exception sketch_refresh:', e)
+
+        return {'output': proxy.io.get_output(),
+                'canvas': proxy.canvas.commands()}
+
+    return {'output': 'ERROR', 'canvas': []}
 
 @eel.expose
 def sketch_click(guid, x, y):
-    sketch_callback(guid, 'click', (x, y))
+    try:
+        proxy = proxies.get(guid)
+        if proxy and proxy.click_callback != None:
+            proxy.click_callback(x, y, True)
+    except Exception as e:
+        print(e)
 
 @eel.expose
 def sketch_wheel(guid, direction):
-    sketch_callback(guid, 'wheel', (direction,))
+    proxy = proxies.get(guid)
+    if proxy and proxy.wheel_callback != None:
+        proxy.wheel_callback(direction)
 

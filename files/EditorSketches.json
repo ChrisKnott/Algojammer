@@ -1,0 +1,4 @@
+{
+  "front_sketch": "\n",
+  "back_sketch": "# TODO: find out where these come from in Ace\nheight, offset = 16.4, 11\n\ncvs = jam.canvas\ncvs.clear()\ncvs.ink(65, 65, 50)\nn = jam.line(jam['current_step'])\ncvs.rect(0, n * height - offset - 1, cvs.width, 18)\n"
+}

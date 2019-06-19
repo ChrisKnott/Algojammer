@@ -1,0 +1,21 @@
+{
+  "title": "stdout",
+  "left": 15,
+  "top": 428,
+  "width": 471,
+  "height": 352,
+  "sketches": [
+    {
+      "label": "stdout",
+      "left": "8px",
+      "top": "8px",
+      "width": 357,
+      "height": 270,
+      "style": "inline-block",
+      "colour": "rgb(220, 220, 220) none repeat scroll 0% 0% / auto padding-box border-box",
+      "maxed": true,
+      "code": "n = jam['current_step']\nout = jam.control.get_stdout(n)\nprint(out)\n",
+      "animate": true
+    }
+  ]
+}
