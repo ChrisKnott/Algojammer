@@ -1296,7 +1296,6 @@ public:
 #endif
 
 private:
-
     /* ---------------------------- Indexing Bins ---------------------------- */
 
     static bool  is_small(size_t s)          { return (s >> SMALLBIN_SHIFT) < NSMALLBINS; }
@@ -2584,7 +2583,6 @@ void* malloc_state::sys_alloc(size_t nb)
 
     if (tbase != cmfail)
     {
-
         if ((_footprint += tsize) > _max_footprint)
             _max_footprint = _footprint;
 
@@ -3411,7 +3409,6 @@ void* malloc_state::internal_memalign(size_t alignment, size_t bytes)
 void** malloc_state::ialloc(size_t n_elements, size_t* sizes, int opts,
                             void* chunks[])
 {
-
     size_t    element_size;   // chunksize of each element, if all same
     size_t    contents_size;  // total size of elements
     size_t    array_size;     // request size of pointer array
